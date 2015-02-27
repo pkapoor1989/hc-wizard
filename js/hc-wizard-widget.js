@@ -18,7 +18,7 @@
 		  locationchangeurl: '@'
         },
 
-              link: function(scope, element, attrs, ctrl, transclude) {
+        link: function(scope, element, attrs, ctrl, transclude) {
 
       transclude(scope, function(clone, scope) {
         element.append(clone);
