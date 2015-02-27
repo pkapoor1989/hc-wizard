@@ -11,7 +11,6 @@
       return {
         restrict: 'E',
           transclude:true,
-          template:'<div ng-transclude></div>',
 
         scope: {
           formmodelprefix: '@',
