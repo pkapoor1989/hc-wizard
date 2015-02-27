@@ -23,7 +23,7 @@
         element.append(clone);
       });
     },
-        controller: function($scope,$state,$http,$timeout,$window,$rootscope)
+        controller: function($scope,$state,$http,$timeout,$window,$rootScope) {}
 							
             $scope.steps[$scope.currentStep].activeStep = false;
             setCurrentStep(nextIndex);
