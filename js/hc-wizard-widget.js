@@ -6,7 +6,7 @@
     .module('hc.ui.wizard', ['ui.router'])
     .value('XS_WIZARD_TEMPLATE_DIR', '') // user configurable
 
-    .directive('hcWizard', ['$state', '$http', '$timeout', '$window',function($state,$http,$timeout) {
+    .directive('hcWizard', ['$state', '$http', '$timeout', '$window','$rootScope',function($state,$http,$timeout,$rootScope) {
 
       return {
         restrict: 'E',
@@ -23,17 +23,7 @@
         element.append(clone);
       });
     },
-        controller: function($scope,$state,$http,$timeout,$window) {
-          $scope.steps = [];
-		  $scope[$scope.formmodelprefix] = {};
-		  $scope.formData = {};
-
-          // underlying step turner
-          var setStep = function(nextIndex) {
-            $scope.state = {state: { previousStep: $scope.currentStep, 
-			                         currentStep: nextIndex 
-								   }
-							};
+        controller: function($scope,$state,$http,$timeout,$window,$rootscope)
 							
             $scope.steps[$scope.currentStep].activeStep = false;
             setCurrentStep(nextIndex);
