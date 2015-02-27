@@ -77,7 +77,7 @@
 				$scope.locationChange();
 			} else
 		    if (isFormInvalid) {
-				$rootScope.$broadcast('onSubmit', $scope.step);
+				$rootScope.$broadcast('onSubmit', $scope.currentStep);
 			} else {
 				if ($scope.isLastFormStep()) {
 					var formDataAggregate = [];
