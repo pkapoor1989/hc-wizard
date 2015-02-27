@@ -3,7 +3,7 @@
 
                                         
   angular
-    .module('xs.ui.wizard', ['ui.router'])
+    .module('hc.ui.wizard', ['ui.router'])
     .value('XS_WIZARD_TEMPLATE_DIR', '') // user configurable
 
     .controller('XSSampleCtrl',[function(){
