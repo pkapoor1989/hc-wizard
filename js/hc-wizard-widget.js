@@ -18,6 +18,12 @@
 		  locationchangeurl: '@'
         },
 
+              link: function(scope, element, attrs, ctrl, transclude) {
+
+      transclude(scope, function(clone, scope) {
+        element.append(clone);
+      });
+    },
         controller: function($scope,$state,$http,$timeout,$window) {
           $scope.steps = [];
 		  $scope[$scope.formmodelprefix] = {};
