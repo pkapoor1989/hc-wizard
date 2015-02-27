@@ -6,20 +6,6 @@
     .module('hc.ui.wizard', ['ui.router'])
     .value('XS_WIZARD_TEMPLATE_DIR', '') // user configurable
 
-    .controller('XSSampleCtrl',[function(){
-
-      var vm = this;
-      vm.show = function(key, state) {
-        console.log(key); console.log(state);
-      };
-      vm.save = function() {
-        console.log('Got Save');
-      };
-      vm.cancel = function() {
-        console.log('Got Cancel');
-      };
-    }])
-
     .directive('hcWizard', ['$state', '$http', '$timeout', '$window',function($state,$http,$timeout) {
 
       return {
@@ -201,21 +187,6 @@
           var app = angular.module('app',['hc.ui.wizard','ui.router']);
 		   
            app.value('HC_WIZARD_TEMPLATE_DIR', ''); // user configurable
-           app.controller('MyCtrl', ['$scope',function MyCtrl($scope){
-            var vm = this;
-			$scope.sayHello = "hello";
-            vm.pageChange = function(state) {
-                console.dir(state);
-                // state is an object
-                //{state: { previousPage: 2, currentPage: 3 }};
-            };
-            vm.save = function() {
-                console.log('Got Save');
-            };
-            vm.cancel = function() {
-                console.log('Got Cancel');
-            };
-        }]);
 		   app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$provide',
         function (stateProvider, urlRouterProvider, httpProvider, provide) {
  
