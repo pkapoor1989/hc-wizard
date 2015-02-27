@@ -23,7 +23,17 @@
         element.append(clone);
       });
     },
-        controller: function($scope,$state,$http,$timeout,$window,$rootScope) {}
+        controller: function($scope,$state,$http,$timeout,$window,$rootScope) {
+          $scope.steps = [];
+		  $scope[$scope.formmodelprefix] = {};
+		  $scope.formData = {};
+
+          // underlying step turner
+          var setStep = function(nextIndex) {
+            $scope.state = {state: { previousStep: $scope.currentStep, 
+			                         currentStep: nextIndex 
+								   }
+							};
 							
             $scope.steps[$scope.currentStep].activeStep = false;
             setCurrentStep(nextIndex);
