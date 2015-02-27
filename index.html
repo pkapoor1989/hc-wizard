@@ -1,100 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>xs-angular-wizard demo</title>
 
-<head>
+    <link href="css/bootstrap.css" rel="stylesheet" />
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <script src="js/angular.js"></script>
+	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>   
+    <script src="js/angular-ui-router.js"></script>
+    <script src="js/hc-wizard-widget.js"></script>
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script>
+        var app = angular.module('app',['hc.ui.wizard','ui.router']);
+		   
+           app.value('HC_WIZARD_TEMPLATE_DIR', ''); // user configurable
+           app.controller('MyCtrl', ['$scope',function MyCtrl($scope){
+            var vm = this;
+			$scope.sayHello = "hello";
+            vm.pageChange = function(state) {
+                console.dir(state);
+                // state is an object
+                //{state: { previousPage: 2, currentPage: 3 }};
+            };
+            vm.save = function() {
+                console.log('Got Save');
+            };
+            vm.cancel = function() {
+                console.log('Got Cancel');
+            };
+        }]);
+		   app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$provide',
+        function (stateProvider, urlRouterProvider, httpProvider, provide) {
+ 
+             app.stateProvider = stateProvider;
+			 }]);
+ ;
+        
+    </script>
+    <style>
+        .pane {
+            min-height:400px;
+            margin-bottom: 10px !important;
+            padding:10px 20px !important;
+            background-color: #eee;
+        }
+    </style>
 
 </head>
+<body ng-app="app">
 
-<body>
+    <div class="container" style="padding-top:20px;">
+        <div class="row">
+            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                <div class="panel panel-primary" >
+                    <div class="panel-heading">
+                        <h3 class="panel-title">XyberSolve Angular Wizard Demo</h3>
+                    </div>
+                    <div class="panel-body" ng-controller="MyCtrl as vm">
+                        <!-- *******************************************************
+                        Wizard Markup Starts Here
+                        -->
+                        
+                        <div hc-wizard formmodelprefix="user" locationchangeurl="/employer/employeelist" class="xs-wizard">
+                            
+                            <hc-wizard-step name="info" url="/section1" template="/section1.html" controller="Section1Ctrl">
+  
+                            </hc-wizard-step>
 
-    <div id="wrapper">
+                            <hc-wizard-step name="order" url="/section2" template="/section2.html" controller="Section2Ctrl">
+ 
+                            </hc-wizard-step>
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
+                            <hc-wizard-step name="payment" url="/section3" template="/section3.html" controller="Section3Ctrl">
+ 
+                            </hc-wizard-step>
+
+                            <hc-wizard-step name="confirmation" url="/section4" template="/section4.html" controller="Section4Ctrl">
+
+                            </hc-wizard-step>
+    <div ng-show="isErrors" class="alert alert-danger" role="alert">Oh snap! Change a few things up and try submitting again.</div>
+    <h2>{{mainTitle}}</h2>
+                            
+
+    <div ng-transclude></div>
+	
+
+	<form name="userForm" action="/handler" novalidate>
+		<div ui-view>
+		</div>
+	</form>
+	
+
+    <div class="row" style="margin-bottom:2px;margin-top:0">
+
+        <div class="col-xs-3">
+            <div class="btn-group btn-group-sm pull-left">
+                <button class="btn btn-small btn-default"
+                        style="margin-left:20px;"
+                        ng-click="prevStep()"
+                        ng-disabled="!hasPrev()">
+                    Previous
+                </button>
+            </div>
         </div>
-        <!-- /#sidebar-wrapper -->
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+        <div class="col-xs-6">
+            <!-- Begin Page Breadcrumb  -->
+            <div class="center-block text-center" ng-if="hasBreadcrumbs==true && steps.length > 1">
+                <div class="btn-group btn-group-sm">
+                    <button type="button"
+                            class="btn btn-sm btn-default"
+                            ng-class="{'btn-primary': step.activeStep==true}"
+                            ng-click="goToStep($index)"
+                            ng-repeat="step in steps">
+
+                        {{step.name || $index + 1}}
+                    </button>
+
+                </div>
+            </div>
+            <!-- // End Page Breadcrumbs -->
+        </div>
+
+        <div class="col-xs-3">
+            <div class="btn-group btn-group-sm pull-right"
+                 style="margin-right:20px">
+                <button class="btn btn-small btn-default"
+                        ng-if="hasCancel==true"
+                        ng-click="cancel()">
+                    Cancel
+                </button>
+
+                <button class="btn btn-small btn-primary"
+                        ng-if="hasSave==true"
+                        ng-click="save()"
+                        ng-hide="hasNext()">
+                    {{saveText || "Save"}}
+                </button>
+
+                <button class="btn btn-small btn-default"
+                        ng-click="nextStep(userForm.$invalid)"
+                        >
+                    Next
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+                        <hc-wizard formmodelprefix="user" locationchangeurl="/employer/employeelist">                             
+
+
+                        </hc-wizard>
+                        <!--
+                        Wizard Markup Ends Here
+                        ******************************************************* -->
                     </div>
                 </div>
             </div>
+
         </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-
 </body>
-
 </html>
