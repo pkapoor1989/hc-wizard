@@ -10,6 +10,7 @@
 
       return {
         restrict: 'EA',
+          transclude:true,
 
         scope: {
           formmodelprefix: '@',
