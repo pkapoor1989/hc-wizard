@@ -9,8 +9,9 @@
     .directive('hcWizard', ['$state', '$http', '$timeout', '$window',function($state,$http,$timeout) {
 
       return {
-        restrict: 'EA',
+        restrict: 'E',
           transclude:true,
+          template:'<div ng-transclude></div>',
 
         scope: {
           formmodelprefix: '@',
