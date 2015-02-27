@@ -24,8 +24,6 @@
 
       return {
         restrict: 'EA',
-        transclude: true,
-        replace: false,
 
         scope: {
           formmodelprefix: '@',
