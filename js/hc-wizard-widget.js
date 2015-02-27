@@ -193,7 +193,7 @@
       return {
         restrict: 'E',
         transclude: true,
-        replace: true
+        replace: true,
 
         scope: {
           title: '@',
