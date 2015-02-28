@@ -1,6 +1,6 @@
-# [Start Bootstrap](http://startbootstrap.com/) - [Simple Sidebar](http://startbootstrap.com/template-overviews/simple-sidebar/)
+# Angular MultiStep Form Wizard
 
-[Simple Sidebar](http://startbootstrap.com/template-overviews/simple-sidebar/) is an off canvas sidebar navigation template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
+[Sidebar](http://startbootstrap.com/template-overviews/simple-sidebar/) is an off canvas sidebar navigation template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
 
 ## Getting Started
 
