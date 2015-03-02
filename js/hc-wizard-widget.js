@@ -26,7 +26,7 @@
                     $form.append($("<div ui-view></div>"));
                 });
             },
-            controller: function ($scope, $state, $http, $timeout, $window, $rootScope, $state) {
+            controller: function ($scope, $state, $http, $timeout, $window, $rootScope) {
                     $scope.steps = [];
                     $scope[$scope.formmodelprefix] = {};
                     $scope.formData = {};
