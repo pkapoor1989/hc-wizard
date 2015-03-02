@@ -6,165 +6,180 @@
     angular
         .module('hc.ui.wizard', ['ui.router'])
         .value('XS_WIZARD_TEMPLATE_DIR', '') // user configurable
+        .provider('router', function ($stateProvider) {
 
-    .directive('hcWizard', ['$state', '$http', '$timeout', '$window', '$rootScope', function ($state, $http, $timeout, $rootScope) {
+            var urlCollection;
 
-        return {
-            restrict: 'E',
-            transclude: true,
+            this.$get = function ($http, $state) {
+                return {
+                    setUpRoutes: function () {
+                        console.log($stateProvider);
+                    }
+                }
+            };
 
-            scope: {
-                formmodelprefix: '@',
-                locationchangeurl: '@'
-            },
+            this.setCollectionUrl = function (url) {
+                urlCollection = url;
+            }
+        })
+        .directive('hcWizard', ['$state', '$http', '$timeout', '$window', '$rootScope', function ($state, $http, $timeout, $rootScope) {
 
-            link: function (scope, element, attrs, ctrl, transclude) {
+            return {
+                restrict: 'E',
+                transclude: true,
 
-                transclude(scope, function (clone, scope) {
-                    element.append(clone);
-                    var $form = element.find("form");
-                    $form.append($("<div ui-view></div>"));
-                });
-            },
-            controller: function ($scope, $state, $http, $timeout, $window, $rootScope) {
-                    $scope.steps = [];
-                    $scope[$scope.formmodelprefix] = {};
-                    $scope.formData = {};
+                scope: {
+                    formmodelprefix: '@',
+                    locationchangeurl: '@'
+                },
 
-                    // underlying step turner
-                    var setStep = function (nextIndex) {
-                        $scope.state = {
-                            state: {
-                                previousStep: $scope.currentStep,
-                                currentStep: nextIndex
+                link: function (scope, element, attrs, ctrl, transclude) {
+
+                    transclude(scope, function (clone, scope) {
+                        element.append(clone);
+                        var $form = element.find("form");
+                        $form.append($("<div ui-view></div>"));
+                    });
+                },
+                controller: function ($scope, $state, $http, $timeout, $window, $rootScope, router) {
+                        $scope.steps = [];
+                        $scope[$scope.formmodelprefix] = {};
+                        $scope.formData = {};
+
+                        // underlying step turner
+                        var setStep = function (nextIndex) {
+                            $scope.state = {
+                                state: {
+                                    previousStep: $scope.currentStep,
+                                    currentStep: nextIndex
+                                }
+                            };
+
+                            $scope.steps[$scope.currentStep].activeStep = false;
+                            setCurrentStep(nextIndex);
+                            if ($scope.onStepChange) {
+                                $scope.onStepChange($scope.state);
                             }
+                            $state.go($scope.steps[$scope.currentStep].name);
                         };
 
-                        $scope.steps[$scope.currentStep].activeStep = false;
-                        setCurrentStep(nextIndex);
-                        if ($scope.onStepChange) {
-                            $scope.onStepChange($scope.state);
-                        }
-                        $state.go($scope.steps[$scope.currentStep].name);
-                    };
 
+                        $scope.cancel = function () {
 
-                    $scope.cancel = function () {
+                        };
 
-                    };
+                        var setCurrentStep = function (index) {
+                            $scope.currentStep = index;
+                            $scope.steps[$scope.currentStep].activeStep = true;
+                        };
 
-                    var setCurrentStep = function (index) {
-                        $scope.currentStep = index;
-                        $scope.steps[$scope.currentStep].activeStep = true;
-                    };
-
-                    // **************************************
-                    // controller interface
-                    //
-                    this.addStep = function (step) {
-                        $scope.steps.push(step);
-                        if (step.name == 'acknowledgement') {
-                            $scope.acknowledgeStep = true;
-                        }
-
-                        $state.state(step.name, {
-                            url: step.url,
-                            templateUrl: step.template,
-                            sticky: true
-                        });
-                        if ($scope.steps.length === 1) {
-                            setCurrentStep(0);
-                            $state.go($scope.steps[0].name);
-
-                        }
-                    };
-                    // **************************************
-                    // $scope interface
-                    //
-                    $scope.goToStep = function (index) {
-                        setStep(index);
-                    };
-
-                    $scope.nextStep = function (isFormInvalid) {
-                        var form = $("hc-wizard form");
-                        if ($scope.acknowledgeStep && $scope.isLast()) {
-                            $scope.locationChange();
-                        } else
-                        if (isFormInvalid) {
-                            $rootScope.$broadcast('onSubmit', $scope.currentStep);
-                        } else {
-                            if ($scope.isLastFormStep()) {
-                                var formDataAggregate = [];
-                                for (var i in $scope.formData) {
-                                    formDataAggregate = formDataAggregate.concat($scope.formData[i]);
-                                }
-                                formDataAggregate.concat(form.serializeArray());
-                                $http({
-                                        method: 'POST',
-                                        url: form.attr('action'),
-                                        data: $.param(formDataAggregate), // pass in data as strings
-                                        headers: {
-                                            'Content-Type': 'application/x-www-form-urlencoded'
-                                        } // set the headers so angular passing info as form data (not request payload)
-                                    })
-                                    .success(function (data) {
-                                        if ($scope.acknowledgeStep) {
-                                            changeStep($scope.currentStep + 1);
-                                        } else {
-                                            $scope.locationChange(); //ToDo Handle Location Change
-                                        }
-
-                                    })
-                                    .error(function (data, status) {
-                                        $scope.isErrors = true;
-                                    });
-                            } else {
-                                $scope.formData[$scope.currentStep] = form.serializeArray();
-                                setStep($scope.currentStep + 1);
+                        // **************************************
+                        // controller interface
+                        //
+                        this.addStep = function (step) {
+                            $scope.steps.push(step);
+                            if (step.name == 'acknowledgement') {
+                                $scope.acknowledgeStep = true;
                             }
 
+                            $state.state(step.name, {
+                                url: step.url,
+                                templateUrl: step.template,
+                                sticky: true
+                            });
+                            if ($scope.steps.length === 1) {
+                                setCurrentStep(0);
+                                $state.go($scope.steps[0].name);
 
-                        }
+                            }
+                        };
+                        // **************************************
+                        // $scope interface
+                        //
+                        $scope.goToStep = function (index) {
+                            setStep(index);
+                        };
 
-                    };
+                        $scope.nextStep = function (isFormInvalid) {
+                            var form = $("hc-wizard form");
+                            if ($scope.acknowledgeStep && $scope.isLast()) {
+                                $scope.locationChange();
+                            } else
+                            if (isFormInvalid) {
+                                $rootScope.$broadcast('onSubmit', $scope.currentStep);
+                            } else {
+                                if ($scope.isLastFormStep()) {
+                                    var formDataAggregate = [];
+                                    for (var i in $scope.formData) {
+                                        formDataAggregate = formDataAggregate.concat($scope.formData[i]);
+                                    }
+                                    formDataAggregate.concat(form.serializeArray());
+                                    $http({
+                                            method: 'POST',
+                                            url: form.attr('action'),
+                                            data: $.param(formDataAggregate), // pass in data as strings
+                                            headers: {
+                                                'Content-Type': 'application/x-www-form-urlencoded'
+                                            } // set the headers so angular passing info as form data (not request payload)
+                                        })
+                                        .success(function (data) {
+                                            if ($scope.acknowledgeStep) {
+                                                changeStep($scope.currentStep + 1);
+                                            } else {
+                                                $scope.locationChange(); //ToDo Handle Location Change
+                                            }
 
-                    $scope.prevStep = function () {
-                        if ($scope.currentStep != 0) {
-                            setStep($scope.currentStep - 1);
-                        }
+                                        })
+                                        .error(function (data, status) {
+                                            $scope.isErrors = true;
+                                        });
+                                } else {
+                                    $scope.formData[$scope.currentStep] = form.serializeArray();
+                                    setStep($scope.currentStep + 1);
+                                }
 
-                    };
-                    $scope.isLast = function () {
-                        return $scope.currentStep === ($scope.steps.length - 1);
-                    };
 
-                    $scope.isLastFormStep = function () {
-                        if ($scope.acknowledgeStep) {
-                            return $scope.currentStep === (($scope.steps.length - 2));
-                        } else {
+                            }
+
+                        };
+
+                        $scope.prevStep = function () {
+                            if ($scope.currentStep != 0) {
+                                setStep($scope.currentStep - 1);
+                            }
+
+                        };
+                        $scope.isLast = function () {
                             return $scope.currentStep === ($scope.steps.length - 1);
+                        };
+
+                        $scope.isLastFormStep = function () {
+                            if ($scope.acknowledgeStep) {
+                                return $scope.currentStep === (($scope.steps.length - 2));
+                            } else {
+                                return $scope.currentStep === ($scope.steps.length - 1);
+                            }
                         }
-                    }
-                    $scope.isFirst = function () {
-                        return $scope.currentStep === 0;
-                    };
-                    $scope.hasNext = function () {
-                        return !$scope.isLast();
-                    };
-                    $scope.hasPrev = function () {
-                        return !$scope.isFirst();
-                    };
+                        $scope.isFirst = function () {
+                            return $scope.currentStep === 0;
+                        };
+                        $scope.hasNext = function () {
+                            return !$scope.isLast();
+                        };
+                        $scope.hasPrev = function () {
+                            return !$scope.isFirst();
+                        };
 
-                    $scope.locationChange = function () {
-                        $window.location.href = $scope.locationchangeurl;
-                    }
+                        $scope.locationChange = function () {
+                            $window.location.href = $scope.locationchangeurl;
+                        }
 
-                    $scope.step = function () {
-                        return $scope.currentStep;
-                    }
+                        $scope.step = function () {
+                            return $scope.currentStep;
+                        }
 
-                } // end controller
-        }; // end return
+                    } // end controller
+            }; // end return
     }])
 
     .directive('hcWizardStep', function () {
