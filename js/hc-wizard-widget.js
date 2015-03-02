@@ -18,9 +18,6 @@
                 }
             };
 
-            this.setCollectionUrl = function (url) {
-                urlCollection = url;
-            }
         })
         .directive('hcWizard', ['$state', '$http', '$timeout', '$window', '$rootScope', function ($state, $http, $timeout, $rootScope) {
 
@@ -85,6 +82,7 @@
                             router.setUpRoutes(step.name, {
                                 url: step.url,
                                 templateUrl: step.template,
+                                controller: step.controller,
                                 sticky: true
                             });
                             if ($scope.steps.length === 1) {
@@ -132,6 +130,11 @@
                                         })
                                         .error(function (data, status) {
                                             $scope.isErrors = true;
+                                            var wizard = $("hc-wizard");
+                                            data.errors.each(function (item) {
+                                                var error = "<div class='inline-error'>" + error.label + "</div>";
+                                                wizard.append($error);
+                                            });
                                         });
                                 } else {
                                     $scope.formData[$scope.currentStep] = form.serializeArray();
@@ -222,7 +225,6 @@
     app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$provide',
         function (stateProvider, urlRouterProvider, httpProvider, provide) {
 
-            app.stateProvider = stateProvider;
     }]);
 
 })(window, window.angular);
