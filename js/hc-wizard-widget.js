@@ -12,8 +12,8 @@
 
             this.$get = function ($http, $state) {
                 return {
-                    setUpRoutes: function () {
-                        console.log($stateProvider);
+                    setUpRoutes: function (name, state) {
+                        $state.state(name, state);
                     }
                 }
             };
@@ -82,7 +82,7 @@
                                 $scope.acknowledgeStep = true;
                             }
 
-                            $state.state(step.name, {
+                            router.setUpRoutes(step.name, {
                                 url: step.url,
                                 templateUrl: step.template,
                                 sticky: true
