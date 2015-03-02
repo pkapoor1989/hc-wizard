@@ -67,7 +67,7 @@
                             $scope.acknowledgeStep = true;
                         }
 
-                        app.stateProvider.state(step.name, {
+                        $state.state(step.name, {
                             url: step.url,
                             templateUrl: step.template,
                             sticky: true
