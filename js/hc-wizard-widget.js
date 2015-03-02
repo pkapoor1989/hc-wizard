@@ -13,7 +13,7 @@
             this.$get = function ($http, $state) {
                 return {
                     setUpRoutes: function (name, state) {
-                        $state.state(name, state);
+                        $stateProvider.state(name, state);
                     }
                 }
             };
