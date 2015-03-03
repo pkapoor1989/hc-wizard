@@ -26,8 +26,7 @@
                 transclude: true,
 
                 scope: {
-                    formmodelprefix: '@',
-                    locationchangeurl: '@'
+                    ajaxSubmitOptions: '='
                 },
 
                 link: function (scope, element, attrs, ctrl, transclude) {
@@ -40,10 +39,20 @@
                 },
                 controller: function ($scope, $state, $http, $timeout, $window, $rootScope, router) {
                         $scope.steps = [];
-                        $scope[$scope.formmodelprefix] = {};
                         $scope.formData = {};
+                        var _defaultPreFn = function () {
+                            var deferred = $q.defer();
+                            deferred.resolve();
+                            return deferred.promise;
+                        }
 
                         // underlying step turner
+                        var _options = {
+                            pre: _defaultPreFn,
+                            success: angular.noop,
+                            error: angular.noop,
+                        };
+                        angular.extend(_options, scope.ajaxSubmitOptions);
                         var setStep = function (nextIndex) {
                             $scope.state = {
                                 state: {
@@ -112,7 +121,7 @@
                                         formDataAggregate = formDataAggregate.concat($scope.formData[i]);
                                     }
                                     formDataAggregate.concat(form.serializeArray());
-                                    $http({
+                                    _options.pre().then($http({
                                             method: 'POST',
                                             url: form.attr('action'),
                                             data: $.param(formDataAggregate), // pass in data as strings
@@ -123,19 +132,22 @@
                                         .success(function (data) {
                                             if ($scope.acknowledgeStep) {
                                                 changeStep($scope.currentStep + 1);
-                                            } else {
-                                                $scope.locationChange(); //ToDo Handle Location Change
                                             }
+                                            _options.success();
 
                                         })
                                         .error(function (data, status) {
-                                            $scope.isErrors = true;
-                                            var wizard = $("hc-wizard");
-                                            data.errors.each(function (item) {
-                                                var error = "<div class='inline-error'>" + error.label + "</div>";
-                                                wizard.append($error);
-                                            });
-                                        });
+                                            /*
+                                                $scope.isErrors = true;
+                                                var wizard = $("hc-wizard");
+                                                data.errors.each(function (item) {
+                                                    var error = "<div class='inline-error'>" + error.label + "</div>";
+                                                    wizard.append($error);
+                                                });
+                                                */
+                                            _options.error();
+                                        }););
+
                                 } else {
                                     $scope.formData[$scope.currentStep] = form.serializeArray();
                                     setStep($scope.currentStep + 1);
@@ -225,6 +237,23 @@
     app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$provide',
         function (stateProvider, urlRouterProvider, httpProvider, provide) {
 
+    }]);
+    app.controller('MyCtrl', ['$scope', '$q', function ($scope, $q) {
+        $scope.options = {
+            pre: function () {
+                var deferred = $q.defer();
+                deferred.resolve();
+
+                return deferred.promise;
+            },
+            success: function (resp) {
+                console.log("Success");
+                alert("success");
+            },
+            error: function (resp) {
+                $log.log('error:hook', resp);
+            }
+        }
     }]);
 
 })(window, window.angular);
