@@ -52,7 +52,7 @@
                             success: angular.noop,
                             error: angular.noop,
                         };
-                        angular.extend(_options, scope.ajaxSubmitOptions);
+                        angular.extend(_options, $scope.ajaxSubmitOptions);
                         var setStep = function (nextIndex) {
                             $scope.state = {
                                 state: {
