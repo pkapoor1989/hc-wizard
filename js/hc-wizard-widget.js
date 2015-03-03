@@ -19,14 +19,14 @@
             };
 
         })
-        .directive('hcWizard', ['$state', '$http', '$timeout', '$window', '$rootScope', function ($state, $http, $timeout, $rootScope) {
+        .directive('hcWizard', ['$state', '$http', '$timeout', '$window', '$rootScope', '$q', function ($state, $http, $timeout, $rootScope, $q) {
 
             return {
                 restrict: 'E',
                 transclude: true,
 
                 scope: {
-                    ajaxSubmitOptions: '='
+                    ajaxsubmitoptions: '='
                 },
 
                 link: function (scope, element, attrs, ctrl, transclude) {
