@@ -1,32 +1,30 @@
-<!DOCTYPE html>
-<html>
+<html><head><link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400;text-decoration:none}.gm-style img{max-width:none}</style>
+    <title>Wingify</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" media="all">
 
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Simple-angular-multi-step-form-wizard demo</title>
+    <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="/images/favicons/favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="/images/favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="/images/favicons/browserconfig.xml">
 
-    <link href="css/bootstrap.css" rel="stylesheet" />
-
-    <script src="js/angular.js"></script>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/angular-ui-router.js"></script>
-    <script src="js/hc-wizard-widget.js"></script>
-
-
-    <script>
-    </script>
-    <style>
-        .pane {
-            min-height: 400px;
-            margin-bottom: 10px !important;
-            padding: 10px 20px !important;
-            background-color: #eee;
-        }
-    </style>
-    <!-- Start Visual Website Optimizer Asynchronous Code -->
-<!-- Start Visual Website Optimizer Asynchronous Code -->
-<script type='text/javascript'>
+    <script type="text/javascript" async="" src="http://stats.g.doubleclick.net/dc.js"></script><script async="" src="//www.googletagmanager.com/gtm.js?id=GTM-5FDRGJ"></script><script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type='text/javascript'>
 var _vwo_code=(function(){
 var account_id=156239,
 settings_tolerance=2000,
@@ -35,110 +33,300 @@ use_existing_jquery=false,
 // DO NOT EDIT BELOW THIS LINE
 f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
 </script>
-<!-- End Visual Website Optimizer Asynchronous Code -->
-<!-- End Visual Website Optimizer Asynchronous Code -->
-
+    
 </head>
-
-<body ng-app="app">
-
-    <div class="container" ng-controller="MyCtrl" style="padding-top:20px;">
-        <div class="row">
-            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-1"></div>
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Angular Multi Step Form Wizard Demo</h3>
-                    </div>
-                    <div class="panel-body">
-                        <!-- *******************************************************
-                        Wizard Markup Starts Here
-                        -->
-
-                        <hc-wizard formmodelprefix="user" ajaxsubmitoptions="options" locationchangeurl="/employer/employeelist" class="xs-wizard">
+<body cz-shortcut-listen="true">
 
 
-                            <hc-wizard-step name="info" url="/section1" template="/hc-wizard/section1.html">
-
-                            </hc-wizard-step>
-
-                            <hc-wizard-step name="order" url="/section2" template="/hc-wizard/section2.html">
-
-                            </hc-wizard-step>
-
-                            <hc-wizard-step name="payment" url="/section3" template="/hc-wizard/section3.html">
-
-                            </hc-wizard-step>
-
-                            <hc-wizard-step name="confirmation" url="/section4" template="/hc-wizard/section4.html">
-
-                            </hc-wizard-step>
-                            <div ng-show="isErrors" class="alert alert-danger" role="alert">Oh snap! Change a few things up and try submitting again.</div>
-                            <h2>{{mainTitle}}</h2>
+ <!-- Google Tag Manager -->
+ <noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-5FDRGJ"
+ height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+ <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+ '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+ })(window,document,'script','dataLayer','GTM-5FDRGJ');</script>
+ <!-- End Google Tag Manager -->
 
 
+<!--
+
+      (`-`;-"```"-;`-`)
+       \.'         './
+       /             \
+       ;   0     0   ;
+      /| =         = |\
+     ; \   '._Y_.'   / ;
+    ;   `-._ \|/ _.-'   ;
+   ;        `"""`        ;
+   ;    `""-.   .-""`    ;
+   /;  '--._ \ / _.--   ;\
+  :  `.   `/|| ||\`   .'  :
+   '.  '-._       _.-'   .'
+   (((-'`  `"""""`   `'-)))
 
 
-                            <form name="userForm" action="/handler" novalidate>
-                                <div ui-view>
-                                </div>
-                            </form>
+   You may ask: in this journey, what's in there for you? Let me tell you.
+   It's the satisfaction of taking a path unknown and having fun along the way.
+   I say, you've just begun. Congrats! But what's the next step?
 
+   Shall we begin on an epic 'adventure'?
 
-                            <div class="row" style="margin-bottom:2px;margin-top:0">
+-->
 
-                                <div class="col-xs-3">
-                                    <div class="btn-group btn-group-sm pull-left">
-                                        <button class="btn btn-small btn-default" style="margin-left:20px;" ng-click="prevStep()" ng-disabled="!hasPrev()">
-                                            Previous
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-6">
-                                    <!-- Begin Page Breadcrumb  -->
-                                    <div class="center-block text-center" ng-if="hasBreadcrumbs==true && steps.length > 1">
-                                        <div class="btn-group btn-group-sm">
-                                            <button type="button" class="btn btn-sm btn-default" ng-class="{'btn-primary': step.activeStep==true}" ng-click="goToStep($index)" ng-repeat="step in steps">
-
-                                                {{step.name || $index + 1}}
-                                            </button>
-
-                                        </div>
-                                    </div>
-                                    <!-- // End Page Breadcrumbs -->
-                                </div>
-
-                                <div class="col-xs-3">
-                                    <div class="btn-group btn-group-sm pull-right" style="margin-right:20px">
-                                        <button class="btn btn-small btn-default" ng-if="hasCancel==true" ng-click="cancel()">
-                                            Cancel
-                                        </button>
-
-                                        <button class="btn btn-small btn-primary" ng-if="hasSave==true" ng-click="save()" ng-hide="hasNext()">
-                                            {{saveText || "Save"}}
-                                        </button>
-
-                                        <button class="btn btn-small btn-default" ng-disabled="!hasNext()" ng-click="nextStep(userForm.$invalid)">
-                                            Next
-                                        </button>
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </hc-wizard>
-
-                        <!--
-                        Wizard Markup Ends Here
-                        ******************************************************* -->
-                    </div>
-                </div>
+    
+            <header class="top-header  " id="top_header">
+    <div class="top-header-content">
+        <div class="container">
+            <div class="block-left">
+                <h1 class="logo">
+                    <a href="/" class="hide-text">Wingify</a>
+                </h1>
+                <a href="#" class="nav-button" onclick="toggle_mobile_nav(); return false;">
+                    <span class="button-text">Menu</span><i class="icon-menu"></i><i class="icon-cancel hidden"></i>
+                </a>
             </div>
+            <nav>
+                <ul class="navigation">
+                    <li><a href="/about">Our Team</a></li>
+                    <li><a href="/labs">Labs</a></li>
+                    <li><a href="/careers">Careers</a></li>
+                    <li class="trigger-contact "><a href="/contact" class="">Contact Us</a></li>
+                </ul>
+                <div class="clr"></div>
+            </nav>
+            <div class="clr"></div>
+            <div class="contact-overlay"></div>
+            
+<div class="block-contact ">
+    <div class="contact-content">
 
+        <h2>Write to us</h2>
+
+        <form method="POST" class="login-form" id="contact-modal-form" onsubmit="return form.validateForm('#contact-modal-form',['email'],'/actions/send-email.php')">
+            <div class="form-item">
+                <label class="label">Name</label>
+                <input type="text" name="name" class="input-text name">
+            </div>
+            <div class="form-item">
+                <label class="label">Email address</label>
+                <input type="text" name="email" class="input-text email">
+                <span class="error-message">The email address you entered is incorrect.</span>
+            </div>
+            <div class="form-item textarea">
+                <label class="label">Message</label>
+                <textarea class="input-text textarea message" name="message"></textarea>
+            </div>
+            <input type="hidden" name="source" value="us_contact">
+            <p class="success_message ta-c"></p>
+            <div class="form-submit-block">
+                <input type="submit" value="Submit" class="button blue filled-shadow clickable">
+            </div>
+        </form>
+
+        <div class="email-text">
+            You can also email us at <a href="mailto:info@wingify.com">info@wingify.com</a>
+        </div>
+
+    </div>
+</div>
         </div>
     </div>
-</body>
+</header>
+    
+<div style="left:-200px; width:100px; position: absolute" id="xyz"><p>You're one crazy person. We love it! Want to achieve greatness? Email your blog, github and work history to adventure@wingify.com</p><p>Psst.. noticed how you don't see any of this text in page source?</p><p>Why did I mention this?</p></div>
 
-</html>
+    
+    
+    <section class="section-intro">
+        <div class="container">
+            <div class="main-heading">
+                <h2>The company that pioneered easy A/B testing</h2>
+                <div class="tagline">is now inventing the future of testing and optimization</div>
+            </div>
+        </div>
+    </section>
+
+    <div id="js-header-fixed-trigger"></div>
+
+    <section class="section section-product-vwo">
+        <div class="container">
+            <div class="ta-c">
+                <div class="title small spacing bold caps">Our Product</div>
+                <a href="https://vwo.com/" class="logo ma mt-40"></a><br>
+                
+                <p class="description ta-c mt-40">
+                    <b>Visual Website Optimizer</b> is the world's easiest <a href="http://vwo.com">A/B testing tool</a>.<br>
+                    Tweak, optimize &amp; personalize your website and apps with minimal IT help.<br>
+                </p>
+
+                <a href="https://vwo.com/"><img class="preview-img ma mt-40" src="/images/product_screenshot@2x.png"></a>
+            </div>
+
+            <ul class="features-list">
+                <li class="testing fl">
+                    <div class="title medium bold">Testing</div>
+                    <div class="text">Easily run A/B tests on your website</div>
+                </li>
+                <li class="heatmaps fr">
+                    <div class="title medium bold">Heatmaps</div>
+                    <div class="text">Track visitors click behavior</div>
+                </li>
+
+                <div class="clr"></div>
+
+                <li class="personalization fl">
+                    <div class="title medium bold">Personalization</div>
+                    <div class="text">Show targeted offers to visitors</div>
+                </li>
+                <li class="user-insights fr">
+                    <div class="title medium bold">User Insights</div>
+                    <div class="text">Get feedback from people on your website</div>
+                </li>
+                 <div class="clr"></div>
+            </ul>
+            <div class="ta-c">
+                <a href="http://vwo.com" class="button filled-shadow blue">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-motto">
+        <div class="container">
+            <div class="quote">We are out to build the world's best technology in analytics and optimization.</div>
+        </div>
+    </section>
+
+    <section class="section-map-details">
+    <div class="map-block" id="map-block" style="position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);"><div class="gm-style" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0; cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 616px; top: 12px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 616px; top: 268px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 360px; top: 12px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 360px; top: 268px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 872px; top: 12px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 872px; top: 268px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 616px; top: 524px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 616px; top: -244px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 360px; top: -244px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 360px; top: 524px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 872px; top: -244px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 872px; top: 524px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 1128px; top: 268px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 104px; top: 12px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 1128px; top: 12px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 104px; top: 268px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 1128px; top: -244px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 104px; top: -244px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 104px; top: 524px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 1128px; top: 524px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -152px; top: 268px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 1384px; top: 268px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 1384px; top: 12px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -152px; top: 12px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 1384px; top: -244px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -152px; top: -244px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: -152px; top: 524px;"></div><div style="width: 256px; height: 256px; transform: translateZ(0px); position: absolute; left: 1384px; top: 524px;"></div></div></div></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 616px; top: 12px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 616px; top: 268px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 360px; top: 12px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 360px; top: 268px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 872px; top: 12px;"><canvas draggable="false" height="256" width="256" style="-webkit-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 872px; top: 268px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 616px; top: 524px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 616px; top: -244px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 360px; top: -244px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 360px; top: 524px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 872px; top: -244px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 872px; top: 524px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 1128px; top: 268px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 104px; top: 12px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 1128px; top: 12px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 104px; top: 268px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 1128px; top: -244px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 104px; top: -244px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 104px; top: 524px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 1128px; top: 524px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: -152px; top: 268px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 1384px; top: 268px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 1384px; top: 12px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: -152px; top: 12px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 1384px; top: -244px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: -152px; top: -244px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: -152px; top: 524px;"></div><div style="width: 256px; height: 256px; overflow: hidden; transform: translateZ(0px); position: absolute; left: 1384px; top: 524px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="transform: translateZ(0px); position: absolute; left: 616px; top: 12px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46811!3i27311!2m3!1e0!2sm!3i306208766!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 616px; top: 268px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46811!3i27312!2m3!1e0!2sm!3i306208766!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 360px; top: 12px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46810!3i27311!2m3!1e0!2sm!3i306143242!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 360px; top: 268px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46810!3i27312!2m3!1e0!2sm!3i306142521!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 872px; top: 12px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46812!3i27311!2m3!1e0!2sm!3i306208766!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 872px; top: 268px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46812!3i27312!2m3!1e0!2sm!3i306208766!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 616px; top: 524px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46811!3i27313!2m3!1e0!2sm!3i306208766!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 616px; top: -244px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46811!3i27310!2m3!1e0!2sm!3i306142521!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 360px; top: -244px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46810!3i27310!2m3!1e0!2sm!3i306143242!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 360px; top: 524px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46810!3i27313!2m3!1e0!2sm!3i306038843!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 872px; top: -244px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46812!3i27310!2m3!1e0!2sm!3i306142521!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 872px; top: 524px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46812!3i27313!2m3!1e0!2sm!3i306208766!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 1128px; top: 268px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46813!3i27312!2m3!1e0!2sm!3i306208766!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 104px; top: 12px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46809!3i27311!2m3!1e0!2sm!3i306143242!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 1128px; top: 12px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46813!3i27311!2m3!1e0!2sm!3i306208766!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 104px; top: 268px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46809!3i27312!2m3!1e0!2sm!3i306142521!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 1128px; top: -244px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46813!3i27310!2m3!1e0!2sm!3i306066205!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 104px; top: -244px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46809!3i27310!2m3!1e0!2sm!3i306143242!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 104px; top: 524px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46809!3i27313!2m3!1e0!2sm!3i306038843!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 1128px; top: 524px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts1.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46813!3i27313!2m3!1e0!2sm!3i306208766!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: -152px; top: 268px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46808!3i27312!2m3!1e0!2sm!3i306167725!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 1384px; top: 268px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46814!3i27312!2m3!1e0!2sm!3i306208766!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 1384px; top: 12px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46814!3i27311!2m3!1e0!2sm!3i306208766!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: -152px; top: 12px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46808!3i27311!2m3!1e0!2sm!3i306167725!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 1384px; top: -244px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46814!3i27310!2m3!1e0!2sm!3i306066205!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: -152px; top: 524px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46808!3i27313!2m3!1e0!2sm!3i306167725!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: 1384px; top: 524px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46814!3i27313!2m3!1e0!2sm!3i306208766!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div><div style="transform: translateZ(0px); position: absolute; left: -152px; top: -244px; width: 256px; height: 256px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="https://mts0.googleapis.com/vt?pb=!1m4!1m3!1i16!2i46808!3i27310!2m3!1e0!2sm!3i306149004!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" draggable="false" style="-webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 256px; height: 256px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 2; width: 100%; height: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 3; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div><div style="transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" href="https://maps.google.com/maps?ll=28.69093,77.14272&amp;z=16&amp;t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=apiv3" title="Click to see this area on Google Maps" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 62px; height: 26px; cursor: pointer;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/google_white2.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 62px; height: 26px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 167px; bottom: 0px; width: 121px;"><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Map Data</a><span style="">Map data ©2015 Google</span></div></div></div><div style="padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 256px; height: 148px; position: absolute; left: 570px; top: 160px; background-color: white;"><div style="padding: 0px 0px 10px; font-size: 16px;">Map Data</div><div style="font-size: 13px;">Map data ©2015 Google</div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" draggable="false" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Map data ©2015 Google</div></div><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; position: absolute; -webkit-user-select: none; right: 95px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a href="https://www.google.com/intl/en-US_US/help/terms_maps.html" target="_blank" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Terms of Use</a></div></div><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none; position: absolute; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a target="_new" title="Report errors in the road map or imagery to Google" href="https://www.google.com/maps/@28.69093,77.14272,16z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">Report a map error</a></div></div></div></div>
+    <div class="map-overlay">
+        <div class="container">
+            <div class="tile address-details">
+                <div class="detail-item">
+                    <div class="item-heading">Email</div>
+                    <p class="text address">
+                        <a href="mailto:info@wingify.com">info@wingify.com</a>
+                    </p>
+                </div>
+                <div class="detail-item">
+                    <div class="item-heading">Phone</div>
+                    <p class="text address">
+                        <a href="tel:+91-11-30017679">+91-11-30017679</a>
+                    </p>
+                </div>
+                <div class="detail-item">
+                    <div class="item-heading">Address</div>
+                    <p class="text address">
+                        14th Floor, KLJ Tower North, <br>
+                        Netaji Subhash Place, <br>
+                        Pitam Pura, Delhi 110034, India
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsKU7sjEmTf-NhBJahg7mPZPqdhZM8WfE&amp;sensor=false"></script><script src="https://maps.gstatic.com/maps-api-v3/api/js/21/3/main.js"></script>
+        <script type="text/javascript">
+            google.maps.event.addDomListener(window, 'load', init_map);
+
+            function init_map() {
+                var loc_venue =  [28.69093, 77.15072];
+
+                var loc_center = [];
+                loc_center[0] = loc_venue[0];
+                loc_center[1] = loc_venue[1] - 0.008;
+
+                var win_width = $(window).width();
+
+                if(win_width < 960 && win_width>800){
+                    loc_center[1] = loc_center[1]+0.01;
+                }
+                if(win_width<=800){
+                    loc_center[1] = loc_center[1]+0.012;
+                }
+
+                var mapOptions = {
+                    zoom: 16,
+                    disableDefaultUI: true,
+                    center: new google.maps.LatLng(loc_center[0], loc_center[1])
+                };
+
+                var mapElement = document.getElementById('map-block');
+                var map = new google.maps.Map(mapElement, mapOptions);
+
+                var image = {
+                    url: '/images/map_marker_icon.png',
+                    size: new google.maps.Size(60, 60),
+                    origin: new google.maps.Point(0,0),
+                    anchor: new google.maps.Point(30, 60)
+                };
+
+                var myLatLng = new google.maps.LatLng(28.69093, 77.15072);
+                var beachMarker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    icon: image
+                });
+            }
+        </script>
+    
+</section>
+
+    <a href="/careers" class="chicklet">
+        We're hiring <br> in Delhi
+        <!-- %37%33%66%33%34%37%32%65%37%62%36%36%66%66%38%65%31%33%39%31%35%63%35%64%38%31%63%66%32%64%66%35 -->
+    </a>
+
+    
+            <footer class="page-footer">
+    <nav class="footer-nav">
+        <div class="container">
+            <a href="/" class="wingify-logo"></a>
+            <div class="social-icons-wrapper">
+                <a href="https://www.facebook.com/Wingify" target="_blank" class="icon facebook"></a>
+                <a href="https://twitter.com/wingify" target="_blank" class="icon twitter"></a>
+                <a href="https://plus.google.com/116706810848094612186/about" class="icon gplus" target="_blank"></a>
+                <a href="https://www.linkedin.com/company/wingify" target="_blank" class="icon linked-in"></a>
+            </div>
+            <div class="clr"></div>
+
+            <div class="nav-item">
+                <a href="http://vwo.com/"><div class="logo-vwo"></div></a>
+                
+                <div class="links-wrapper">
+                    <a href="/careers" class="link">Careers</a>
+                    <a href="/about" class="link">Team</a>
+                </div>
+
+                <div class="clr"></div>
+
+                <ul>
+                    <li><a href="http://vwo.com/blog/">Blog</a></li>
+                     <li><a href="http://team.wingify.com/">Team Blog</a></li>
+                    <li><a href="http://engineering.wingify.com/">Engineering Blog</a></li>
+                    <li class=""><a href="/contact">Contact Us</a></li>
+                </ul>
+                <div class="copyright nav-item">
+                    <ul>
+                        <li><span>Copyright © Wingify</span></li>
+                        <li><a href="http://visualwebsiteoptimizer.com/terms-conditions.php">Terms of Use</a></li>
+                        <li><a href="http://visualwebsiteoptimizer.com/privacy-policy.php">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="clr"></div>
+            </div>
+
+            <div class="clr"></div>
+        </div>
+    </nav>
+</footer>
+
+    
+    
+<script type="text/javascript" src="/js/adventure-begins.js"></script>
+
+
+</body></html>
